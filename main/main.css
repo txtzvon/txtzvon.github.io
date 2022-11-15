@@ -1,0 +1,271 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+@font-face {
+  font-family: "Rubik";
+  src: url(./fonts/RubikBubbles-Regular.ttf);
+}
+
+.background_image_1 {
+  width: 100vw;
+  height: 100vh;
+}
+.background_image_2 {
+  width: 100vw;
+  height: 100vh;
+}
+.cicle{
+  position: absolute;
+  top: 350px;
+  left: 618px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-image: linear-gradient(-225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%);  box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+}
+.rotate-shadows {
+  top: 320px;
+  left: 590px;
+  width: 90px;
+  height: 90px;
+  position: absolute;
+}
+.rotate-shadows:after,
+.rotate-shadows:before {
+  content: "";
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+}
+
+.rotate-shadows:before {
+  box-shadow: inset 0 20px 0 rgba(230,142,64, 0.6), inset 20px 0 0 rgba(228,161,101, 0.6), inset 0 -20px 0 rgba(228,161,101, 0.6), inset -20px 0 0 rgba(228,161,101, 0.6);
+  animation: rotate-before 2s -0.5s linear infinite;
+}
+/* background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%); */
+.rotate-shadows:after {
+  box-shadow: inset 0 20px 0 rgba(241,129,30, 0.5), inset 20px 0 0 rgba(250, 200, 0, 0.6), inset 0 -20px 0 rgba(250, 150, 0, 0.6), inset -20px 0 0 rgba(250, 100, 0, 0.6);
+  animation: rotate-after 2s -0.5s linear infinite;
+}
+@keyframes rotate-after {
+  0% {transform: rotateZ(0deg) scaleX(1) scaleY(1);}
+  50% {transform: rotateZ(180deg) scaleX(0.82) scaleY(0.95);}
+  100% {transform: rotateZ(360deg) scaleX(1) scaleY(1);}
+}
+@keyframes rotate-before {
+  0% {transform: rotateZ(0deg) scaleX(1) scaleY(1);}
+  50% {transform: rotateZ(-180deg) scaleX(0.95) scaleY(0.85);}
+  100% {transform: rotateZ(-360deg) scaleX(1) scaleY(1);}
+}
+.show {
+  display: block;
+}
+.greeting-text {
+  display: none;
+  font-family: "Rubik";
+  font-size: 60px;
+  width: 620px;
+  position: absolute;
+  top: 252px;
+  left: 55px;
+  background: linear-gradient(90deg, rgba(230,181,26,1) 5%, rgba(241,136,41,1) 37%, rgba(117,175,148,1) 91%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.69;
+}
+
+.text_with_invite {
+  position: absolute;
+  font-family: "Rubik";
+  font-size: 60px;
+  width: 430px;
+  position: absolute;
+  top: 840px;
+  left: 100px;
+  background-image: linear-gradient(-225deg, #2CD8D5 0%, #C5C1FF 56%, #FFBAC3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.btn_sushi{
+  position: absolute;
+  top: 1197px;
+  border-radius: 50%;
+  left: 396px;
+  width: 55px;
+  height: 55px;
+  color: rgb(164, 67, 184);
+  opacity: 0.7;
+  background-image: linear-gradient(-225deg, #2CD8D5 0%, #C5C1FF 56%, #FFBAC3 100%);
+}
+.btn_sushi:hover {
+  cursor: pointer;
+}
+.section1 {
+  width: 100vw;
+  height: 100vh;
+}
+.block {
+  display: block;
+}
+.block1 {
+  display: none;
+  width: 100px;
+  height: 100px;
+  background: url('./sushi.png') no-repeat center center / contain;
+  animation: star 5s linear infinite;
+  position: absolute;
+  left: 0; top: 300px;
+}
+.block2 {
+  display: none;
+  width: 70px;
+  height: 70px;
+  background: url('./sushi.png') no-repeat center center / contain;
+  animation: cat 5s linear infinite;
+  position: absolute;
+  left: 0; top: 400px;
+}
+.block3 {
+  display: none;
+  width: 90px;
+  height: 90px;
+  background: url('./sushi.png') no-repeat center center / contain;
+  animation: net 5s linear infinite;
+  position: absolute;
+  left: 100px; top: 600px;
+}
+.block4 {
+  display: none;
+  width: 90px;
+  height: 90px;
+  background: url('./sushi.png') no-repeat center center / contain;
+  animation: net1 4s linear infinite;
+  position: absolute;
+  left: 0; top: 200px;
+}
+.block5 {
+  display: none;
+  width: 55px;
+  height: 55px;
+  background: url('./sushi.png') no-repeat center center / contain;
+  animation: net2 4s linear infinite;
+  position: absolute;
+  left: 0; top: 1180px;
+}
+.block6 {
+  display: none;
+  width: 150px;
+  height: 150px;
+  background: url('./sushi.png') no-repeat center center / contain;
+  animation: net3 4s linear infinite;
+  position: absolute;
+  left: 0; top: 1150px;
+}
+
+
+@keyframes star {
+  to {
+    left: 100%;
+    top: 100%;
+  }
+}
+@keyframes cat {
+  to {
+    left: 900px;
+    top: 1200px;
+  }
+}
+@keyframes net {
+  to {
+    left: 40%;
+    top: 100%;
+  }
+}
+@keyframes net1 {
+  to {
+    left: 90%;
+    top: 100%;
+  }
+}
+@keyframes net2 {
+  to {
+    left: 900px;
+    top: 400px;
+  }
+}
+@keyframes net3 {
+  to {
+    left: 50%;
+    top: 10%;
+  }
+}
+@keyframes net4 {
+  to {
+    left: 50%;
+    top: 80%;
+  }
+}
+@keyframes net5 {
+  to {
+    left: 20%;
+    top: 95%;
+  }
+}
+
+.countdown-title {
+  /* color: #396; */
+  font-weight: 100;
+  text-align: center;
+  font-size: 40px;
+  margin: 40px 0px 20px;
+  background: linear-gradient(90deg, rgba(230,181,26,1) 5%, rgba(241,136,41,1) 37%, rgba(117,175,148,1) 91%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.8;
+}
+ 
+.countdown {
+  font-family: sans-serif;
+  color: #fff;
+  display: inline-block;
+  font-weight: 100;
+  text-align: center;
+  font-size: 30px;
+}
+ 
+.countdown-number {
+  padding: 10px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, rgba(230,181,26,1) 5%, rgba(241,136,41,1) 37%, rgba(117,175,148,1) 91%);
+  display: inline-block;
+}
+ 
+.countdown-time {
+  padding: 15px;
+  border-radius: 3px;
+  background: #00816a;
+  display: inline-block;
+}
+ 
+.countdown-text {
+  display: block;
+  padding-top: 5px;
+  font-size: 16px;
+}
+.take_time {
+  display: block;
+}
+.wrap_countdown {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 900px;
+  z-index: 5;
+}
