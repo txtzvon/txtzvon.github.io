@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./main/main.css">
+  <title>Document</title>
+  <link rel="stylesheet" href="./jquery-fsscroll-master/src/jquery.fsscroll.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="./jquery-fsscroll-master/src/jquery.fsscroll.js"></script>
+</head>
+<body>
+  <main class="container">
+    <div class="sections">
+      <section class="first_page section section0">
+        <img src="./main/1 background.jpeg" class="background_image_1">
+        <div class="greeting-text show">Привет. Я тут подумал, что давно не звал Тебя на свидание...</div>
+        <div class="rotate-shadows"></div>
+        <button class="cicle"></button>
+      </section>
+      <section class="section section1">
+        <div class="text_with_invite">Нас ждет поход в планетарий, смех, наука, а самое главное..</div>
+        <img src="./main/2 background.jpeg" class="background_image_2">
+        <button class="btn_sushi"></button>
+      </section>
+    </div>
+    <div class="block block1"></div>
+    <div class="block block2"></div>
+    <div class="block block3"></div>
+    <div class="block block4"></div>
+    <div class="block block5"></div> 
+    <div class="block block6"></div> 
+    <div class="wrap_countdown take_time">
+      <h1 class="countdown-title">Countdown Clock</h1>
+      <div id="countdown" class="countdown">
+      <div class="countdown-number">
+        <span class="days countdown-time"></span>
+        <span class="countdown-text">Days</span>
+      </div>
+      <div class="countdown-number">
+       <span class="hours countdown-time"></span>
+       <span class="countdown-text">Hours</span>
+      </div>
+      <div class="countdown-number">
+        <span class="minutes countdown-time"></span>
+        <span class="countdown-text">Minutes</span>
+      </div>
+      <div class="countdown-number">
+        <span class="seconds countdown-time"></span>
+        <span class="countdown-text">Seconds</span>
+      </div>
+     </div>
+    </div>
+
+  </main>
+
+  <script>
+    $('.container').fsScroll({
+    direction: 'vertical',
+        duration: 700,
+        keyboard: true,
+        });
+    
+    $(".cicle").click(function(){
+    $(".greeting-text").toggle('.show')
+    });
+
+    $(".btn_sushi").click(function(){
+    $(".block1").toggle('block'),
+    $(".block2").toggle('block'),
+    $(".block3").toggle('block'),
+    $(".block4").toggle('block'),
+    $(".block5").toggle('block'),
+    $(".block6").toggle('block'),
+    $(".wrap_countdown").toggle('take_time')
+    });
+
+    const getTimeRemaining = (endtime) => {
+      let t = Date.parse(endtime) - Date.parse(new Date());
+      let seconds = Math.floor((t / 1000) % 60);
+      let minutes = Math.floor((t / 1000 / 60) % 60);
+      let hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+      let days = Math.floor(t / (1000 * 60 * 60 * 24));
+       return {
+        'total': t,
+        'days': days,
+        'hours': hours,
+        'minutes': minutes,
+        'seconds': seconds
+         };
+      };
+ 
+    const initializeClock = (id, endtime) => {
+      let clock = document.getElementById(id);
+      let daysSpan = clock.querySelector('.days');
+      let hoursSpan = clock.querySelector('.hours');
+      let minutesSpan = clock.querySelector('.minutes');
+      let secondsSpan = clock.querySelector('.seconds');
+ 
+    const updateClock = () => {
+    let t = getTimeRemaining(endtime);
+    daysSpan.innerHTML = t.days;
+    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+ 
+    if (t.total <= 0) {
+      clearInterval(timeinterval);
+    }
+  };
+ 
+  updateClock();
+  let timeinterval = setInterval(updateClock, 1000);
+}
+const deadline="November 19 2022 19:30:00 GMT+0300";
+initializeClock('countdown', deadline);
+</script>
+</body>
+</html>
